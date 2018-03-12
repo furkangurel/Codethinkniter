@@ -22,6 +22,6 @@ public function blogekle()
 ```
 <form action="" method="post">
 <label>Blog Başlık</labeş>
-<input type="text" name="1">  // Name kısmında yazan sayı tablonuzda kaydetmek istediğiniz sütunun sırası olmalıdır.
+<input type="text" name="1"> / Name kısmında yazan sayı tablonuzda kaydetmek istediğiniz sütunun sırası olmalıdır.
 ```
  
