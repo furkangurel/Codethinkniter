@@ -20,9 +20,9 @@ class CodeThinkniter
 	{
 		$ci = &get_instance();							   				
 		$tables=$ci->db->list_fields($name); 	  						  
-		$arraytable = $this->stdarray($tables);                          
-		$image=$_FILES;							                        
-		$input=$ci->input->post();		   	   						   
+		$arraytable = $this->stdarray($tables);   
+		$image=$_FILES;	
+		$input=$ci->input->post(); 	   						   
 		$rules=$this->uploadrules($upload);	  					       
 		$data=$this->createdata($arraytable,$image,$input,$rules);	 
 		return $this->procedure("insert",$name,$data);				
@@ -85,29 +85,28 @@ class CodeThinkniter
 
 	function createdata($db,$image,$input,$upload,$update=null)
 	{
-		$ci = &get_instance();
-
-		if($update)
+		    $ci = &get_instance();
+			if($update)
 			{
 				$updateveb=array($db[0]=>$input[0]); 
 				$ci->session->set_userdata('updateveb',$updateveb);
 				unset($db[0]);
 				unset($input[0]);
 			}
+		
 
-		if(!$image[4]['size']==0)
-		{
+	
 			foreach($image as $img => $val)
 			{
-				$file_path=$this->upfile($upload,$img);
+				if($val['size']!=0){
+			    $file_path=$this->upfile($upload,$img);
 				if($file_path)
 				{
 					$data[$db[$img]]=$file_path;
 				}
 						
-			}
-		}
-		 
+			}}
+
 
 		foreach($input as $inp => $value)
 		{
