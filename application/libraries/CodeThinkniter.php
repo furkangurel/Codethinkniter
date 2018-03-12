@@ -7,7 +7,7 @@ class CodeThinkniter
 	public function command($name,$job,$upload=null)
 	{
 		$ci = &get_instance();
-		if($ci->input->method()!="post"){
+		if($ci->input->method()=="post"){
 		switch ($job)
 		{  
 		   case     "insert": $this->insert($name,$upload); 		 				break;
