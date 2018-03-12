@@ -20,7 +20,8 @@ public function blogekle()
 </pre>
 
 ```
+<form action="" method="post">
 <label>Blog Başlık</labeş>
-<input type="text" name="1">  // Name kısmına verinin kaydedileceği sütunun sırasını girmelisin. Bu inputa yazılan başlık tablonun 1.sırasındaki sütuna kaydedilecektir.
+<input type="text" name="1">  // Name kısmında yazan sayı tablonuzda kaydetmek istediğiniz sütunun sırası olmalıdır.
 ```
  
