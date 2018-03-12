@@ -46,9 +46,6 @@ $config['success_insert'] = '<div class="alert alert-success">Ekleme işlemi ba�
 Success Update : Güncelleme işlemi başarıyla gerçekleşirse Ekranda yazacak olan bilgi mesajını belirlemenizi sağlar.  */
 $config['success_update'] = '<div class="alert alert-success">Güncelleme işlemi başarıyla yapıldı.</div>';            /*
 
-Success Delete : Silme işlemi başarıyla gerçekleşirse Ekranda yazacak olan bilgi mesajını belirlemenizi sağlar.       */
-$config['success_delete'] = '<div class="alert alert-success">Silme işlemi başarıyla yapıldı.</div>';                 /* 
-*/
 
 /*
 |---------------------------| |------------------------------------------------------------------------------------------| 
