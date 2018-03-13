@@ -3,7 +3,7 @@ Simple Codeigniter İnsert-Update Library
 
 Beta süreci başlangıcı 12.03.2018
 
-
+Tutorial : https://www.youtube.com/watch?v=rRDNh1JYyH0
 
 Projeye dahil etmek için;
 <pre>$this->load->library('Codethinkniter'); </pre>
@@ -19,6 +19,8 @@ public function blogekle()
 }
 </pre>
 
+
+View
 ```
 <form action="" method="post">
 <label>Blog Başlık</labeş>
