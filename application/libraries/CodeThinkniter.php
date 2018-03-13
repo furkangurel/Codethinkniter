@@ -10,10 +10,29 @@ class CodeThinkniter
 		if($ci->input->method()=="post"){
 		switch ($job)
 		{  
-		   case     "insert": $this->insert($name,$upload); 		 				break;
-		   case     "update": $this->update($name,$upload); 		 				break;
+		   case     "insert": return $this->insert($name,$upload); 		 				break;
+		   case     "update": return $this->update($name,$upload); 		 				break;
 		   default:  echo $job." Kullanılabilir komutlar arasında değil. ";         break;
 		}
+	}}
+
+
+	public function validate($rules)
+	{
+		$ci = &get_instance();
+		if($ci->input->method()=="post"){
+		$ci->load->library('form_validation');
+		$ci->form_validation->set_rules($rules);
+		if ($ci->form_validation->run() == FALSE)
+                {
+                        $ci->session->set_userdata(config_item('thinksession'),validation_errors('<div class="alert alert-danger">', '</div>'));
+                        $input=$ci->input->post();
+                        foreach ($input as $key => $value) 
+                        {
+                        	$ci->session->set_flashdata('a'.$key,set_value($key));
+                        }
+                        return redirect($_SERVER['HTTP_REFERER']);
+                }
 	}}
 	
 	public function insert($name,$upload)
@@ -88,7 +107,8 @@ class CodeThinkniter
 		    $ci = &get_instance();
 			if($update)
 			{
-				$updateveb=array($db[0]=>$input[0]); 
+				$enc=$this->sessiondata($input[0]);
+				$updateveb=array($db[0]=>$enc); 
 				$ci->session->set_userdata('updateveb',$updateveb);
 				unset($db[0]);
 				unset($input[0]);
