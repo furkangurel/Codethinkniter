@@ -11,10 +11,10 @@ Tutorial : https://www.youtube.com/watch?v=rRDNh1JYyH0
 	v2 Yenilikleri<hr>
 
 	<li> Form Validation Özelliği Eklendi.</li>
-	<li> Validationdan geçemeyen inputların değerlerini göstermek için validatemssage() fonksiyonu eklendi.
+	<li> Validationdan geçemeyen inputların değerlerini göstermek için validatemssage() fonksiyonu eklendi.</li>
 	<li> Tüm mesajları ekrana basan message() fonksiyonu eklendi. </li>
 
-
+<pre>
 
 
 
