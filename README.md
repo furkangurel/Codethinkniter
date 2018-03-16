@@ -14,7 +14,7 @@ Tutorial : https://www.youtube.com/watch?v=rRDNh1JYyH0
 	<li> Validationdan geçemeyen inputların değerlerini göstermek için validatemssage() fonksiyonu eklendi.</li>
 	<li> Tüm mesajları ekrana basan message() fonksiyonu eklendi. </li>
 
-<pre>
+</pre>
 
 
 
