@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 |----------------------------------------------------------------------------------------------------------------------|
-|                                    CodeTHİNKniter v1. Easy Insert-Update Library 					   		 	       |	  
+|                                    CodeTHİNKniter v2. Easy Insert-Update Library 					   		 	       |	  
 |----------------------------------------------------------------------------------------------------------------------|
 |  Author  : Furkan Gürel																							   |
 |  Github  : https://github.com/furkangurel 																		   |

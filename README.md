@@ -5,6 +5,19 @@ Beta süreci başlangıcı 12.03.2018
 
 Tutorial : https://www.youtube.com/watch?v=rRDNh1JYyH0
 
+
+
+<pre>
+	v2 Yenilikleri<hr>
+
+	<li> Form Validation Özelliği Eklendi.</li>
+	<li> Validationdan geçemeyen inputların değerlerini göstermek için validatemssage() fonksiyonu eklendi.
+	<li> Tüm mesajları ekrana basan message() fonksiyonu eklendi. </li>
+
+
+
+
+
 Projeye dahil etmek için;
 <pre>$this->load->library('Codethinkniter'); </pre>
 
