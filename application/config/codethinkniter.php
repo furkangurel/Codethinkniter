@@ -47,6 +47,78 @@ Success Update : Güncelleme işlemi başarıyla gerçekleşirse Ekranda yazacak
 $config['success_update'] = '<div class="alert alert-success">Güncelleme işlemi başarıyla yapıldı.</div>';            /*
 
 
+
+/*
+|---------------------------| |------------------------------------------------------------------------------------------| 
+|CODETHİNKNİTER KULLANIMI   | |                                  İNSERT METODU             								 |
+|---------------------------| |------------------------------------------------------------------------------------------|
+
+Controller
+| 
+$this->load->library('Codethinkniter');
+$this->codethinkniter->command('tabloadi','insert');
+|
+View
+<input type="text" name="1"> // Name kısmına bu inputtan gelen verinin kaydolacağı sütunun sırasını yazmalısın.
+
+Tüm form  inputlarını destekler.
+
+*/
+
+/*
+|---------------------------| |------------------------------------------------------------------------------------------| 
+|CODETHİNKNİTER KULLANIMI   | |                                  UPTATE METODU           								 |
+|---------------------------| |------------------------------------------------------------------------------------------|
+
+Controller
+| 
+$this->load->library('Codethinkniter');
+$this->codethinkniter->command('tabloadi','upload');
+|
+View
+<input type="text" name="1"> // Name kısmına bu inputtan gelen verinin kaydolacağı sütunun sırasını yazmalısın.
+
+<input type="hidden" name="0" value="<?php codethinkniter($id)"> // Güncellenmesini istediğiniz veriye ait id yi 
+																	name="0" dedikten sonra value kısmında codet
+																	hinkniter() metoduyla belirtin.
+
+*/
+
+
+/*
+|---------------------------| |------------------------------------------------------------------------------------------| 
+|CODETHİNKNİTER KULLANIMI   | |                                  FORM VALİDATİON          								 |
+|---------------------------| |------------------------------------------------------------------------------------------|
+
+Controller
+| 
+$this->load->library('Codethinkniter');
+
+$config=array
+(
+	array
+	(
+		'field'=>"1", 				// Validation kuralı yazdığınız inputun name değerini girmelisiniz.
+		'label'=>"Haber Başlığı",  // Eğer Validation kuralından geçemezse hata gösterirken yazmasını istediğiniz başlık.
+		'rules'=>"required|min_length[5]" // Belirlediğiniz Kurallar.
+	)
+);
+$this->codethinkniter->validate($config);
+$this->codethinkniter->command('tabloadi','insert');
+|
+
+Validate satırının command den üstte yazması gereklidir.
+
+View
+|
+<input type="text" name="1" value="<?php echo validatemessage(1)"> // Eğer Form validation hatalı olursa input içerisinde 
+																	  hatalı olan içeriği tekrar gösterir.
+
+
+*/
+
+
+
 /*
 |---------------------------| |------------------------------------------------------------------------------------------| 
 |KULLANILABİLİR FONKSYİONLAR| |Formdan veri çekerken kullanileceğiniz fonksiyonlar.                                      |
