@@ -8,7 +8,7 @@ Tutorial : https://www.youtube.com/watch?v=rRDNh1JYyH0
 
 
 
-	v2 Yenilikleri<hr>
+	v2 Yenilikleri
 
 	<li> Form Validation Özelliği Eklendi.</li>
 	<li> Validationdan geçemeyen inputların değerlerini göstermek için validatemessage() fonksiyonu eklendi.</li>
