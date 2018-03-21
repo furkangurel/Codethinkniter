@@ -64,6 +64,7 @@ class CodeThinkniter
 	{
 		$ci = &get_instance();
 		$value=$ci->session->userdata('updateveb');
+		$manuelpilot=$ci->session->flashdata('auto_pilot');
 		switch ($job)
 		{
 		   case "insert":
@@ -72,10 +73,20 @@ class CodeThinkniter
 				 {
 				 	$ci->session->set_flashdata(config_item('thinksession'),config_item('success_insert'));				 	
 				 }
-				 if(config_item('auto_pilot')==true)
+				 if($manuelpilot)
 				 {
-				 	return redirect($_SERVER['HTTP_REFERER']);
+				 	if($manuelpilot==true)
+				 	{
+				 		return redirect($_SERVER['HTTP_REFERER']);
+				 	}
+				 }else
+				 {
+				 	if(config_item('auto_pilot')==true)
+				 	{
+				 		return redirect($_SERVER['HTTP_REFERER']);
+				 	}
 				 }
+				 
 		   return $result; 
 		   break;
 		   case "update": 
@@ -84,9 +95,18 @@ class CodeThinkniter
 				 {
 				 	$ci->session->set_flashdata(config_item('thinksession'),config_item('success_update'));
 				 }
-				 if(config_item('auto_pilot')==true)
+				  if($manuelpilot)
 				 {
-				 	return redirect($_SERVER['HTTP_REFERER']);
+				 	if($manuelpilot==true)
+				 	{
+				 		return redirect($_SERVER['HTTP_REFERER']);
+				 	}
+				 }else
+				 {
+				 	if(config_item('auto_pilot')==true)
+				 	{
+				 		return redirect($_SERVER['HTTP_REFERER']);
+				 	}
 				 }
 		   return $results;
 		   break;
