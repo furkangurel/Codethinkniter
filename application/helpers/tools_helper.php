@@ -17,9 +17,3 @@ function message()
     $name=config_item('thinksession');
     echo $ci->session->flashdata($name);
 }
-
-function auto_pilot($val)
-{
-	$ci=get_instance();
-    return $ci->session->set_flashdata('auto_pilot',$val);
-}

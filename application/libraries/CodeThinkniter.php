@@ -25,7 +25,10 @@ class CodeThinkniter
 		$ci->form_validation->set_rules($rules);
 		if ($ci->form_validation->run() == FALSE)
                 {
-                        $ci->session->set_flashdata(config_item('thinksession'),validation_errors('<div class="alert alert-danger">', '</div>'));
+                        $ci->session->set_flashdata(config_item('thinksession'),validation_errors
+                        	(
+                        	    config_item('validation_error')['start'] , config_item('validation_error')['finish'])
+                         	);
                         $input=$ci->input->post();
                         foreach ($input as $key => $value) 
                         {
@@ -34,6 +37,19 @@ class CodeThinkniter
                         return redirect($_SERVER['HTTP_REFERER']);
                 }
 	}}
+
+	public function auto_pilot($val)
+	{
+	    $ci=get_instance();
+	    if($val==true){$durum="True";}else{$durum="False";}
+	    if(config_item('auto_pilot')==$val)
+	    {
+	        echo "Config de belirtilmiş olan Auto_pilot değeri zaten ".$durum ;
+	        die();
+	    }
+	    if($val==true){$val="on";}else{$val="off";}
+	    return $ci->session->set_flashdata('auto_pilot',$val);
+	}
 	
 	public function insert($name,$upload)
 	{
@@ -69,20 +85,24 @@ class CodeThinkniter
 		{
 		   case "insert":
 		 		 $result=$ci->vt->insert($table,$data);
-				 if(config_item('thinksession')!="")
-				 {
-				 	$ci->session->set_flashdata(config_item('thinksession'),config_item('success_insert'));				 	
-				 }
 				 if($manuelpilot)
 				 {
-				 	if($manuelpilot==true)
+				 	if($manuelpilot=="on")
 				 	{
+				 		if(config_item('thinksession')!="")
+						{
+				 			$ci->session->set_flashdata(config_item('thinksession'),config_item('success_insert'));				 	
+				 		}
 				 		return redirect($_SERVER['HTTP_REFERER']);
 				 	}
 				 }else
 				 {
 				 	if(config_item('auto_pilot')==true)
 				 	{
+				 		if(config_item('thinksession')!="")
+						{
+				 			$ci->session->set_flashdata(config_item('thinksession'),config_item('success_insert'));				 	
+				 		}
 				 		return redirect($_SERVER['HTTP_REFERER']);
 				 	}
 				 }
@@ -95,22 +115,30 @@ class CodeThinkniter
 				 {
 				 	$ci->session->set_flashdata(config_item('thinksession'),config_item('success_update'));
 				 }
-				  if($manuelpilot)
+				if($manuelpilot)
 				 {
-				 	if($manuelpilot==true)
+				 	if($manuelpilot=="on")
 				 	{
+				 		if(config_item('thinksession')!="")
+						{
+				 			$ci->session->set_flashdata(config_item('thinksession'),config_item('success_update'));				 	
+				 		}
 				 		return redirect($_SERVER['HTTP_REFERER']);
 				 	}
 				 }else
 				 {
 				 	if(config_item('auto_pilot')==true)
 				 	{
+				 		if(config_item('thinksession')!="")
+						{
+				 			$ci->session->set_flashdata(config_item('thinksession'),config_item('success_update'));				 	
+				 		}
 				 		return redirect($_SERVER['HTTP_REFERER']);
 				 	}
 				 }
 		   return $results;
 		   break;
-		   default: echo "Bu Komutu bilmiyorum"; exit(); break;
+		   default: echo "Bu Komutu bilmiyorum"; die(); break;
 		}
 	}
 
@@ -127,6 +155,11 @@ class CodeThinkniter
 		    $ci = &get_instance();
 			if($update)
 			{
+				if(!isset($input[0]))
+				{
+					echo "Güncellenecek id değeri belirtilmemiş. Formdan name değeri 0 olan inputta value kısmında id belirtiniz.";
+					die();
+				}
 				$enc=$this->sessiondata($input[0]);
 				$updateveb=array($db[0]=>$enc); 
 				$ci->session->set_userdata('updateveb',$updateveb);
@@ -234,7 +267,11 @@ class CodeThinkniter
  			return "err";
  		}else
  		{
- 			$ci->session->set_flashdata(config_item('thinksession'),$ci->upload->display_errors(config_item('upload_fail')));
+ 			$ci->session->set_flashdata(config_item('thinksession'),$ci->upload->display_errors
+ 			(
+ 				config_item('upload_fail')['start'] ,
+ 				config_item('upload_fail')['finish']
+ 			));
  			return redirect($_SERVER['HTTP_REFERER']);
  		}
  	}

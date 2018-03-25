@@ -25,7 +25,8 @@ $config['max_width']            = 1750;                                         
 Max Width : Upload edilen resimin yükseklik değerini  girmenizi sağlar   												  */
 $config['max_height']           = 1750;                                  												  /*
 Upload Fail : Upload edilen dosyanın hangi sebepten yüklenemediğini ekrana basar.  										  */
-$config['upload_fail']          = '<div class="alert alert-danger">Resim Yüklenemedi</div>'; 							  /*
+$config['upload_fail']          = array('start'  =>'<div class="alert alert-danger">',
+										'finish' =>'</div>'); 				  											  /*
 Session Name   : İşlem sonucunda kullanıcıya sunulcak bilgileri saklıyacak session adını giriniz.                     	  */
 $config['thinksession']         = 'sonuc';      																	      /*
 
@@ -38,13 +39,18 @@ $config['thinksession']         = 'sonuc';      																	      /*
 |-----------------------| |------------------------------------------------------------------------------------------|
 
 Auto Pilot     : İşlem sonucunda kullanıcıya sunulcak bilgileri otomatik  sunmanızı sağlar.    true/false             */
-$config['auto_pilot']     = false;     																			      /*
+$config['auto_pilot']     = true;     																			      /*
 
 Success İnsert : Ekleme işlemi başarıyla gerçekleşirse Ekranda yazacak olan bilgi mesajını belirlemenizi sağlar.      */
 $config['success_insert'] = '<div class="alert alert-success">Ekleme işlemi başarıyla yapıldı.</div>';                /*
 																												  
 Success Update : Güncelleme işlemi başarıyla gerçekleşirse Ekranda yazacak olan bilgi mesajını belirlemenizi sağlar.  */
 $config['success_update'] = '<div class="alert alert-success">Güncelleme işlemi başarıyla yapıldı.</div>';            /*
+
+Validation Error : Validation işlemi gerçekleşmezse Ekranda yazacak olan bilgi mesajı stilini belirlemenizi sağlar.  */
+$config['validation_error'] = array('start'  => '<div class="alert alert-danger">',
+									'finish'  =>'</div>');                 											/*
+
 
 
 
