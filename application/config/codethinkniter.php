@@ -73,7 +73,7 @@ Tüm form  inputlarını destekler.
 
 /*
 |---------------------------| |------------------------------------------------------------------------------------------| 
-|CODETHİNKNİTER KULLANIMI   | |                                  UPTATE METODU           								 |
+|CODETHİNKNİTER KULLANIMI   | |                                  UPDATE METODU           								 |
 |---------------------------| |------------------------------------------------------------------------------------------|
 
 Controller
@@ -122,6 +122,24 @@ View
 
 
 */
+
+
+/*
+|---------------------------| |------------------------------------------------------------------------------------------| 
+|CODETHİNKNİTER KULLANIMI   | |                                  AUTO PİLOT         								 	 |
+|---------------------------| |------------------------------------------------------------------------------------------|
+
+Controller
+| 
+$this->load->library('Codethinkniter');
+
+$this->codethinkniter->auto_pilot() /true or false
+
+Configde belirlemiş olduğunuz auto pilot metodunun dışında kullanmak istediğinizde tanımlamanız gerekir.Configde auto_pilot
+true ise ve bir controllerda false olarak kullanmak isterseniz ilgili fonksiyonda yazmanız yeterli olacaktır.
+
+
+*/																	  
 
 
 
