@@ -84,7 +84,8 @@ class CodeThinkniter
 		switch ($job)
 		{
 		   case "insert":
-		 		 $result=$ci->vt->insert($table,$data);
+		 		 $result=$ci->db->insert($table,$data);
+
 				 if($manuelpilot)
 				 {
 				 	if($manuelpilot=="on")
@@ -111,6 +112,7 @@ class CodeThinkniter
 		   break;
 		   case "update": 
 		   $results=$ci->db->where($value)->update($table,$data);
+
 		   if(config_item('thinksession')!="")
 				 {
 				 	$ci->session->set_flashdata(config_item('thinksession'),config_item('success_update'));
